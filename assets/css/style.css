@@ -140,6 +140,10 @@ h3 {
   max-width: 46rem;
 }
 
+.ingress--etter {
+  margin-top: 1rem;
+}
+
 .punktum {
   color: var(--messing);
 }
@@ -251,6 +255,15 @@ h3 {
 .hero__innhold {
   padding-top: clamp(3rem, 8vw, 6rem);
   max-width: 44rem;
+}
+
+.hero__under {
+  font-family: var(--font-tittel);
+  font-weight: 500;
+  font-size: clamp(1.3rem, 2.6vw, 1.75rem);
+  line-height: 1.25;
+  color: var(--messing-lys);
+  margin-top: 0.9rem;
 }
 
 .hero__innhold .ingress {
@@ -445,9 +458,23 @@ h3 {
   background-size: contain;
 }
 
+.pakke > p:not(.pakke__under) {
+  font-size: 0.97rem;
+}
+
+/* Kortet som er vårt: messing i stedet for grønt øverst */
+.pakke--fremhevet {
+  border-color: var(--messing);
+  border-top-color: var(--messing);
+}
+
 .pakker-note {
   margin-top: 2.25rem;
   max-width: 46rem;
+}
+
+.pakker-note strong {
+  color: var(--gronn);
 }
 
 /* ---------- Trygghet ---------- */
@@ -470,6 +497,108 @@ h3 {
   font-size: 1.15rem;
   color: var(--gronn);
   margin-bottom: 0.3rem;
+}
+
+/* ---------- Tenkt eksempel ---------- */
+/* Tid går vannrett, som i rapportene: periodene er kolonner, målene er rader */
+.eksempel {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  max-width: 46rem;
+}
+
+.eksempel__ramme {
+  overflow-x: auto;
+}
+
+.eksempel table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.95rem;
+}
+
+.eksempel caption {
+  text-align: left;
+  font-family: var(--font-tittel);
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: var(--gronn);
+  padding-bottom: 0.7rem;
+}
+
+.eksempel th,
+.eksempel td {
+  padding: 0.55rem 0.5rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.eksempel th[scope="row"] {
+  text-align: left;
+  font-weight: 600;
+}
+
+.eksempel thead th {
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--messing-mork);
+  border-bottom: 2px solid var(--gronn);
+}
+
+.eksempel tbody tr + tr {
+  border-top: 1px solid #d8ddd6;
+}
+
+.eksempel__faktisk {
+  font-weight: 600;
+  color: var(--gronn);
+}
+
+.eksempel__bom td {
+  color: var(--messing-mork);
+}
+
+.eksempel figcaption {
+  margin-top: 1.1rem;
+  font-size: 0.97rem;
+}
+
+@media (max-width: 40rem) {
+  .eksempel table {
+    font-size: 0.85rem;
+  }
+  .eksempel th,
+  .eksempel td {
+    padding-inline: 0.3rem;
+  }
+}
+
+/* ---------- Sesonginngang ---------- */
+.kampanje {
+  background: var(--gronn);
+  color: var(--papir);
+  border-radius: 14px;
+  padding: clamp(2rem, 5vw, 3.5rem);
+}
+
+.kampanje h2 {
+  color: var(--papir);
+}
+
+.kampanje .merkelapp {
+  color: var(--messing-lys);
+}
+
+.kampanje p {
+  max-width: 46rem;
+}
+
+.kampanje p + p {
+  margin-top: 1rem;
+}
+
+.kampanje .knapp {
+  margin-top: 2rem;
 }
 
 /* ---------- Om ---------- */
