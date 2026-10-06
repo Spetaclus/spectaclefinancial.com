@@ -490,6 +490,14 @@ h3 {
   }
 }
 
+/* Et oddetall punkter etterlater et hull til høyre; det siste får hele bredden */
+@media (min-width: 52rem) {
+  .trygghet li:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    max-width: 46rem;
+  }
+}
+
 .trygghet strong {
   display: block;
   font-family: var(--font-tittel);
