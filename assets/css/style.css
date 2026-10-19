@@ -1,5 +1,7 @@
 /* Spectacle — spetaclus.com/spectacle
-   Farger og typografi: SPECTACLE/Profil/farger.md + Profilmanual.md */
+   Farger og typografi: SPECTACLE/Profil/farger.md + Profilmanual.md
+   Profil fra 19.10.2026: blekk og papir bærer alt. Chartreuse er eneste aksent
+   og står bare på mørk flate, med blekk som tekst; aldri på papir, aldri på tall. */
 
 /* ---------- Fonter (selvhostet, OFL) ---------- */
 @font-face {
@@ -35,15 +37,15 @@
 
 /* ---------- Variabler ---------- */
 :root {
-  --gronn: #0F3D2F;
-  --gronn-mork: #082A20;
-  --gronn-lys: #2E6B52;
-  --tint: #E3EDE6;
-  --papir: #FAF7F0;
-  --blekk: #1A1E1C;
-  --messing: #C29A4C;
-  --messing-lys: #D9B36A;
-  --messing-mork: #8A6420;
+  --blekk: #172B3A;
+  --blekk-lys: #22394B;
+  --skifer: #55616B;
+  --solv: #A9B4BD;
+  --linje: #D9DCDE;
+  --take: #E9EBEC;
+  --papir: #F7F7F5;
+  --chartreuse: #C5DE75;
+  --negativ: #A63D2F;
 
   --font-tittel: "Space Grotesk", "Avenir Next", sans-serif;
   --font-tekst: "IBM Plex Sans", "Helvetica Neue", sans-serif;
@@ -87,7 +89,7 @@ svg {
 }
 
 a {
-  color: var(--gronn);
+  color: var(--blekk);
 }
 
 .ramme {
@@ -102,7 +104,7 @@ h2,
 h3 {
   font-family: var(--font-tittel);
   line-height: 1.15;
-  color: var(--gronn);
+  color: var(--blekk);
 }
 
 h1 {
@@ -131,7 +133,7 @@ h3 {
   font-size: 0.8rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--messing-mork);
+  color: var(--skifer);
   margin-bottom: 0.9rem;
 }
 
@@ -142,10 +144,6 @@ h3 {
 
 .ingress--etter {
   margin-top: 1rem;
-}
-
-.punktum {
-  color: var(--messing);
 }
 
 /* ---------- Knapper ---------- */
@@ -160,60 +158,20 @@ h3 {
   transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.knapp--messing {
-  background: var(--messing);
-  color: var(--gronn-mork);
+/* Chartreuse med blekk tekst (9,8:1). Står bare på blekk, så alle knappene ligger på mørk flate */
+.knapp--chartreuse {
+  background: var(--chartreuse);
+  color: var(--blekk);
 }
-.knapp--messing:hover {
-  background: var(--messing-lys);
-}
-
-.knapp--gronn {
-  background: var(--gronn);
-  color: var(--papir);
-}
-.knapp--gronn:hover {
-  background: var(--gronn-lys);
-}
-
-/* ---------- Linse-motiv (dekor) ---------- */
-.linsemotiv {
-  position: absolute;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.linsemotiv--hero {
-  right: -6rem;
-  bottom: -10rem;
-  width: min(46rem, 62vw);
-  opacity: 0.9;
-}
-
-.linsemotiv--kontakt {
-  left: -8rem;
-  top: -9rem;
-  width: min(34rem, 55vw);
-  opacity: 0.75;
-}
-
-@media (max-width: 52rem) {
-  .linsemotiv--hero {
-    right: -12rem;
-    bottom: -14rem;
-    width: 34rem;
-    opacity: 0.6;
-  }
-  .linsemotiv--kontakt {
-    display: none;
-  }
+.knapp--chartreuse:hover {
+  background: var(--papir);
 }
 
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
   overflow: hidden;
-  background: radial-gradient(120% 140% at 20% 0%, #14503e 0%, var(--gronn) 45%, var(--gronn-mork) 100%);
+  background: var(--blekk);
   color: var(--papir);
   padding-bottom: var(--luft);
 }
@@ -231,8 +189,9 @@ h3 {
   padding-block: 1.75rem;
 }
 
+/* Versalhøyden er omtrent 64 % av høyden; luften rundt er minst versalhøyden */
 .hero__logo img {
-  height: 2.4rem;
+  height: 1.6rem;
   width: auto;
 }
 
@@ -249,7 +208,7 @@ h3 {
   padding-bottom: 2px;
 }
 .hero__nav a:hover {
-  border-bottom-color: var(--messing-lys);
+  border-bottom-color: var(--chartreuse);
 }
 
 .hero__innhold {
@@ -262,7 +221,7 @@ h3 {
   font-weight: 500;
   font-size: clamp(1.3rem, 2.6vw, 1.75rem);
   line-height: 1.25;
-  color: var(--messing-lys);
+  color: var(--solv);
   margin-top: 0.9rem;
 }
 
@@ -282,7 +241,7 @@ h3 {
 
 .hero__cta-note {
   font-size: 0.9rem;
-  color: var(--messing-lys);
+  color: var(--solv);
 }
 
 /* ---------- Seksjoner ---------- */
@@ -291,24 +250,18 @@ h3 {
 }
 
 .seksjon--tint {
-  background: var(--tint);
+  background: var(--take);
 }
 
-.seksjon--gronn {
-  position: relative;
-  overflow: hidden;
-  background: var(--gronn);
+.seksjon--blekk {
+  background: var(--blekk);
   color: var(--papir);
 }
-.seksjon--gronn > .ramme {
-  position: relative;
-  z-index: 1;
-}
-.seksjon--gronn h2 {
+.seksjon--blekk h2 {
   color: var(--papir);
 }
-.seksjon--gronn .merkelapp {
-  color: var(--messing-lys);
+.seksjon--blekk .merkelapp {
+  color: var(--solv);
 }
 
 .todelt {
@@ -331,7 +284,7 @@ h3 {
 
 .verdier li {
   padding-left: 1.4rem;
-  border-left: 3px solid var(--messing);
+  border-left: 2px solid var(--blekk);
 }
 
 .verdier strong {
@@ -339,7 +292,7 @@ h3 {
   font-family: var(--font-tittel);
   font-weight: 500;
   font-size: 1.1rem;
-  color: var(--gronn);
+  color: var(--blekk);
   margin-bottom: 0.15rem;
 }
 
@@ -376,7 +329,7 @@ h3 {
   font-family: var(--font-tittel);
   font-weight: 700;
   font-size: 2rem;
-  color: var(--messing-mork);
+  color: var(--blekk);
   line-height: 1;
 }
 
@@ -387,8 +340,7 @@ h3 {
   align-self: center;
   width: 1.8rem;
   height: 1.8rem;
-  color: var(--messing-mork);
-  opacity: 0.8;
+  color: var(--skifer);
 }
 
 .steg li h3,
@@ -414,8 +366,8 @@ h3 {
 
 .pakke {
   background: var(--papir);
-  border: 1px solid #d8ddd6;
-  border-top: 4px solid var(--gronn);
+  border: 1px solid var(--linje);
+  border-top: 4px solid var(--blekk);
   border-radius: 10px;
   padding: 2rem 1.75rem;
   display: flex;
@@ -430,42 +382,26 @@ h3 {
 .pakke__under {
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--messing-mork);
+  color: var(--skifer);
   margin-bottom: 1.1rem;
-}
-
-.pakke ul {
-  list-style: none;
-  display: grid;
-  gap: 0.6rem;
-  font-size: 0.97rem;
-}
-
-.pakke li {
-  padding-left: 1.55rem;
-  position: relative;
-}
-/* Mini-linse: logoens mekanikk i miniatyr (ring med utstanset punktum-sokkel) */
-.pakke li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.34em;
-  width: 0.8rem;
-  height: 0.8rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M 2 32 a 30 30 0 1 0 60 0 a 30 30 0 1 0 -60 0 Z M 10 32 a 22 22 0 1 0 44 0 a 22 22 0 1 0 -44 0 Z M 15.7 43 a 5.3 5.3 0 1 0 10.6 0 a 5.3 5.3 0 1 0 -10.6 0 Z' fill='%23C29A4C' fill-rule='evenodd'/%3E%3Ccircle cx='21' cy='43' r='4.5' fill='%238A6420'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: contain;
 }
 
 .pakke > p:not(.pakke__under) {
   font-size: 0.97rem;
 }
 
-/* Kortet som er vårt: messing i stedet for grønt øverst */
+/* Kortet som er vårt står på blekk, så chartreuse kan markere det; på papir ville den forsvunnet */
 .pakke--fremhevet {
-  border-color: var(--messing);
-  border-top-color: var(--messing);
+  background: var(--blekk);
+  color: var(--papir);
+  border-color: var(--blekk);
+  border-top-color: var(--chartreuse);
+}
+.pakke--fremhevet h3 {
+  color: var(--papir);
+}
+.pakke--fremhevet .pakke__under {
+  color: var(--solv);
 }
 
 .pakker-note {
@@ -474,7 +410,7 @@ h3 {
 }
 
 .pakker-note strong {
-  color: var(--gronn);
+  color: var(--blekk);
 }
 
 /* ---------- Trygghet ---------- */
@@ -503,7 +439,7 @@ h3 {
   font-family: var(--font-tittel);
   font-weight: 500;
   font-size: 1.15rem;
-  color: var(--gronn);
+  color: var(--blekk);
   margin-bottom: 0.3rem;
 }
 
@@ -530,7 +466,7 @@ h3 {
   font-family: var(--font-tittel);
   font-weight: 500;
   font-size: 1.1rem;
-  color: var(--gronn);
+  color: var(--blekk);
   padding-bottom: 0.7rem;
 }
 
@@ -549,21 +485,22 @@ h3 {
 .eksempel thead th {
   font-weight: 600;
   font-size: 0.85rem;
-  color: var(--messing-mork);
-  border-bottom: 2px solid var(--gronn);
+  color: var(--skifer);
+  border-bottom: 2px solid var(--blekk);
 }
 
 .eksempel tbody tr + tr {
-  border-top: 1px solid #d8ddd6;
+  border-top: 1px solid var(--linje);
 }
 
 .eksempel__faktisk {
   font-weight: 600;
-  color: var(--gronn);
+  color: var(--blekk);
 }
 
+/* Bommen er et negativt avvik: funksjonsfargen, aldri aksenten på tall */
 .eksempel__bom td {
-  color: var(--messing-mork);
+  color: var(--negativ);
 }
 
 .eksempel figcaption {
@@ -583,7 +520,7 @@ h3 {
 
 /* ---------- Sesonginngang ---------- */
 .kampanje {
-  background: var(--gronn);
+  background: var(--blekk);
   color: var(--papir);
   border-radius: 14px;
   padding: clamp(2rem, 5vw, 3.5rem);
@@ -594,7 +531,7 @@ h3 {
 }
 
 .kampanje .merkelapp {
-  color: var(--messing-lys);
+  color: var(--solv);
 }
 
 .kampanje p {
@@ -636,12 +573,12 @@ h3 {
   font-size: 0.98rem;
 }
 .kontakt__epost a {
-  color: var(--messing-lys);
+  color: var(--papir);
 }
 
 .skillelinje {
   border: 0;
-  border-top: 1px solid rgba(250, 247, 240, 0.18);
+  border-top: 1px solid rgba(247, 247, 245, 0.18);
   margin-block: var(--luft) 0;
 }
 
@@ -653,7 +590,7 @@ h3 {
   flex-wrap: wrap;
   padding-block: 2rem;
   font-size: 0.88rem;
-  color: rgba(250, 247, 240, 0.75);
+  color: var(--solv);
 }
 
 .footer__venstre {
@@ -663,7 +600,7 @@ h3 {
 }
 
 .footer__venstre img {
-  height: 1.75rem;
+  height: 1rem;
   width: auto;
 }
 
@@ -671,7 +608,7 @@ h3 {
 .sprak {
   display: inline-flex;
   align-items: stretch;
-  background: rgba(250, 247, 240, 0.14);
+  background: rgba(247, 247, 245, 0.14);
   border-radius: 999px;
   overflow: hidden;
   margin-left: 0.4rem;
@@ -684,7 +621,7 @@ h3 {
   letter-spacing: 0.08em;
   line-height: 1;
   padding: 0.4rem 0.7rem;
-  color: rgba(250, 247, 240, 0.72);
+  color: var(--solv);
   text-decoration: none;
   border-bottom: 0;
   transition: background-color 0.15s ease, color 0.15s ease;
@@ -692,13 +629,13 @@ h3 {
 
 .hero__nav a.sprak__valg:hover {
   color: var(--papir);
-  background: rgba(250, 247, 240, 0.12);
+  background: rgba(247, 247, 245, 0.12);
   border-bottom: 0;
 }
 
 .hero__nav .sprak__valg--aktiv {
-  background: var(--messing);
-  color: var(--gronn-mork);
+  background: var(--papir);
+  color: var(--blekk);
 }
 
 /* ---------- Booking-modal ---------- */
@@ -709,11 +646,11 @@ h3 {
   padding: 0;
   width: min(94vw, 52rem);
   background: var(--papir);
-  box-shadow: 0 24px 80px rgba(8, 42, 32, 0.45);
+  box-shadow: 0 24px 80px rgba(23, 43, 58, 0.45);
 }
 
 .booking::backdrop {
-  background: rgba(8, 42, 32, 0.72);
+  background: rgba(23, 43, 58, 0.72);
   backdrop-filter: blur(3px);
 }
 
@@ -723,7 +660,7 @@ h3 {
   justify-content: space-between;
   gap: 1rem;
   padding: 0.9rem 1.25rem;
-  background: var(--gronn);
+  background: var(--blekk);
 }
 
 .booking__tittel {
@@ -738,15 +675,15 @@ h3 {
   font-size: 0.9rem;
   color: var(--papir);
   background: none;
-  border: 1px solid rgba(250, 247, 240, 0.4);
+  border: 1px solid rgba(247, 247, 245, 0.4);
   border-radius: 999px;
   padding: 0.35rem 0.9rem;
   cursor: pointer;
   transition: border-color 0.15s ease, color 0.15s ease;
 }
 .booking__lukk:hover {
-  border-color: var(--messing-lys);
-  color: var(--messing-lys);
+  border-color: var(--chartreuse);
+  color: var(--chartreuse);
 }
 
 .booking__ramme {
