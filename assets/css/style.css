@@ -146,6 +146,35 @@ h3 {
   margin-top: 1rem;
 }
 
+/* Løftet: setningen om hva kunden får. Står over styrespørsmålene og gjør
+   menyen til et løfte. Settes i tittelfonten, fordi den er en påstand og
+   ikke brødtekst. */
+.lofte {
+  font-family: var(--font-tittel);
+  font-size: clamp(1.25rem, 2.4vw, 1.6rem);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--blekk);
+  max-width: 48rem;
+  margin-top: 1.4rem;
+}
+
+.lofte__punkter {
+  list-style: none;
+  padding: 0;
+  margin: 1.4rem 0 0;
+  max-width: 48rem;
+  border-top: 1px solid var(--linje);
+}
+
+.lofte__punkter li {
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--linje);
+  color: var(--skifer);
+  font-size: clamp(1rem, 1.7vw, 1.08rem);
+  line-height: 1.55;
+}
+
 /* ---------- Knapper ---------- */
 .knapp {
   display: inline-block;
