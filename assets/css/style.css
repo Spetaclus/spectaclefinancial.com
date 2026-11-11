@@ -468,6 +468,14 @@ h3 {
   }
 }
 
+/* Merkelappen står bare på den første i hver gruppe. Uten et tomt spor
+   starter naboen i samme rad høyere, og kolonnene blir ujevne. */
+.trygghet li:not(:has(.trygghet__gruppe))::before {
+  content: "";
+  display: block;
+  height: calc(0.72rem * 1.5 + 0.4rem);
+}
+
 .trygghet strong {
   display: block;
   font-family: var(--font-tittel);
@@ -487,6 +495,8 @@ h3 {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--skifer);
+  /* Eksplisitt, så det tomme sporet under kan treffe nøyaktig samme høyde */
+  line-height: 1.5;
   margin-bottom: 0.4rem;
 }
 
