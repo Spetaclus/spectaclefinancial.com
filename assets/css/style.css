@@ -109,9 +109,14 @@ h3 {
 
 h1 {
   font-weight: 700;
-  font-size: clamp(2.5rem, 6.5vw, 4.25rem);
+  /* Nedre grense senket fra 2.5rem: «Økonomifunksjonen» er ett ord på sytten
+     tegn og ble klippet på 375 px. Orddeling i tillegg, siden norsk har flere
+     slike sammensetninger. */
+  font-size: clamp(2.1rem, 6.5vw, 4.25rem);
   letter-spacing: -0.015em;
   color: var(--papir);
+  hyphens: auto;
+  overflow-wrap: break-word;
 }
 
 h2 {
