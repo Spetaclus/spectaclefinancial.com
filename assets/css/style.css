@@ -115,8 +115,15 @@ h1 {
   font-size: clamp(2.1rem, 6.5vw, 4.25rem);
   letter-spacing: -0.015em;
   color: var(--papir);
-  hyphens: auto;
   overflow-wrap: break-word;
+}
+
+/* Orddeling bare der spalten er for smal til ordet. Over denne bredden er
+   det plass, og da er en bindestrek midt i overskriften bare stygt. */
+@media (max-width: 63.99rem) {
+  h1 {
+    hyphens: auto;
+  }
 }
 
 h2 {
@@ -250,12 +257,13 @@ h3 {
   max-width: 44rem;
 }
 
+
 .hero__under {
   font-family: var(--font-tittel);
   font-weight: 500;
   font-size: clamp(1.3rem, 2.6vw, 1.75rem);
   line-height: 1.25;
-  color: var(--solv);
+  color: var(--papir);
   margin-top: 0.9rem;
 }
 
@@ -447,59 +455,125 @@ h3 {
   color: var(--blekk);
 }
 
-/* ---------- Trygghet ---------- */
-.trygghet {
+/* ---------- Styrekortene: de fem spørsmålene ---------- */
+/* Hvert kort bærer sin egen merkelapp, så ingen trenger et tomt spor for å
+   stå i flukt med naboen. Det femte er rådgivningen, og får hele bredden. */
+.styrekort {
   list-style: none;
   display: grid;
-  gap: 2rem 3rem;
+  gap: 1.25rem;
   margin-top: 2.5rem;
 }
+
 @media (min-width: 52rem) {
-  .trygghet {
+  .styrekort {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
-}
-
-/* Et oddetall punkter etterlater et hull til høyre; det siste får hele bredden */
-@media (min-width: 52rem) {
-  .trygghet li:last-child:nth-child(odd) {
+  .styrekort li:last-child {
     grid-column: 1 / -1;
-    max-width: 46rem;
   }
 }
 
-/* Merkelappen står bare på den første i hver gruppe. Uten et tomt spor
-   starter naboen i samme rad høyere, og kolonnene blir ujevne. */
-.trygghet li:not(:has(.trygghet__gruppe))::before {
-  content: "";
-  display: block;
-  height: calc(0.72rem * 1.5 + 0.4rem);
+.styrekort li {
+  background: #FFFFFF;
+  border: 1px solid var(--linje);
+  border-top: 2px solid var(--blekk);
+  padding: 1.5rem;
 }
 
-.trygghet strong {
-  display: block;
+.styrekort__topp {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.7rem;
+}
+
+.styrekort__nr {
   font-family: var(--font-tittel);
-  font-weight: 500;
-  font-size: 1.15rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  font-variant-numeric: tabular-nums;
   color: var(--blekk);
-  margin-bottom: 0.3rem;
 }
 
-/* ---------- Tenkt eksempel ---------- */
-/* Tid går vannrett, som i rapportene: periodene er kolonner, målene er rader */
-.trygghet__gruppe {
-  display: block;
-  font-family: var(--font-tekst);
+.styrekort__merke {
   font-weight: 600;
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--skifer);
-  /* Eksplisitt, så det tomme sporet under kan treffe nøyaktig samme høyde */
-  line-height: 1.5;
-  margin-bottom: 0.4rem;
 }
 
+.styrekort strong {
+  display: block;
+  font-family: var(--font-tittel);
+  font-weight: 500;
+  font-size: 1.18rem;
+  line-height: 1.25;
+  color: var(--blekk);
+  margin-bottom: 0.45rem;
+}
+
+.styrekort p {
+  color: var(--skifer);
+  line-height: 1.55;
+}
+
+/* Rådgivningen står for seg, og på mørk flate er chartreuse tillatt */
+.styrekort li:last-child {
+  background: var(--blekk);
+  border-color: var(--blekk);
+  border-top-color: var(--chartreuse);
+}
+
+.styrekort li:last-child .styrekort__nr,
+.styrekort li:last-child .styrekort__merke {
+  color: var(--chartreuse);
+}
+
+.styrekort li:last-child strong {
+  color: var(--papir);
+}
+
+.styrekort li:last-child p {
+  color: var(--solv);
+}
+
+/* ---------- Vilkårene under prisen ---------- */
+/* Tre korte punkter i stedet for ett tett avsnitt. Ingen beløp: prisen
+   settes per kunde, og nettsiden viser den ikke. */
+.vilkar {
+  list-style: none;
+  display: grid;
+  gap: 1.1rem;
+  margin-top: 1.6rem;
+  max-width: 58rem;
+}
+
+@media (min-width: 52rem) {
+  .vilkar {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+.vilkar li {
+  border-top: 2px solid var(--blekk);
+  padding-top: 0.75rem;
+  color: var(--skifer);
+  line-height: 1.55;
+}
+
+.vilkar strong {
+  font-family: var(--font-tittel);
+  font-weight: 500;
+  color: var(--blekk);
+}
+
+/* ---------- Tenkt eksempel ---------- */
+/* Tatt ut av siden 11.11.2026, men reglene står igjen med vilje:
+   da er det én setning å sette eksempelet inn igjen. */
 .eksempel {
   margin-top: clamp(3rem, 6vw, 4.5rem);
   max-width: 46rem;
